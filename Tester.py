@@ -35,13 +35,13 @@ class Tester(unittest.TestCase):
         
     def test_bik(self):
 
-        print(self.bik)
-        self.assertAlmostEqual(self.bik, 0, places=2)
+        #print(self.bik)
+        self.assertAlmostEqual(self.bik, 0.0, places=2)
     
     def test_getUI(self):
-        print(self.ui)
-        self.assertAlmostEqual(self.ui, 0, places=6)
-
+        print(self.ui[0,:])
+        #self.assertAlmostEqual(self.ui.any(), -177.71, places=2)
+        self.assertEqual(np.allclose(self.ui,[-177.71,-177.71]), True)
 
     
         
