@@ -33,10 +33,35 @@ class Tester(unittest.TestCase):
         #print(dis)
         self.assertEqual(dis, 4)
         
+    def test_phiCalculation(self):
+        z = 1
+        self.assertAlmostEqual(np.round(Math.phi(z), decimals=4), 3.5355, places = 3)
+        
+    def test_phiAplhaCalculation(self):
+        z = 1
+        self.assertAlmostEqual(np.round(Math.phiAlpha(z), decimals=4), -0.0, places = 3)
+    
+    def test_phiBetaCalculation(self):
+        z = 1
+        self.assertAlmostEqual(np.round(Math.phiBeta(z), decimals=4), -0.0, places = 3)
+  
+    def test_getNij(self):
+        val = 3.1586
+        self.assertAlmostEqual(np.round(Math.getNij(0,1,self.nodes), decimals=4), val, places = 4)
+        
     def test_bik(self):
 
         #print(self.bik)
         self.assertAlmostEqual(self.bik, 0.0, places=2)
+        
+    def test_sigmaNorm(self):
+        z = 1
+        self.assertAlmostEqual(np.round(Math.sigmaNorm(z),decimals=4),0.488,places = 3)
+        
+       
+     
+        
+        
     
     def test_getUI(self):
         print(self.ui[0,:])
