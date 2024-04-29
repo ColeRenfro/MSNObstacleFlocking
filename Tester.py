@@ -1,0 +1,51 @@
+import unittest
+import numpy as np
+from Nodes import Nodes
+from Math import Math
+
+
+class Tester(unittest.TestCase):
+    
+    obstaclesLoc = np.array([(100, 10)])
+    obstacleRadius = np.array([15])
+    numObstacles = obstaclesLoc.shape[0]
+    gammaAgent = Nodes(250,40)
+    nodes = np.zeros(2, dtype=object)
+    nodes[0] = Nodes(100,40)
+    nodes[1] = Nodes(105,42)
+    i = 0
+    j = 1
+    oldPosition = np.array([nodes[0].posx,nodes[0].posy])
+    mu = obstacleRadius / np.linalg.norm(oldPosition - obstaclesLoc)
+    qik = mu * oldPosition + (1 - mu) * obstaclesLoc
+    bik = Math.bump(Math.sigmaNorm(np.linalg.norm(qik - oldPosition)) /  Math.dBeta)
+    nik = (qik - oldPosition) / np.sqrt(1 + 0.1 * np.linalg.norm(qik - oldPosition) ** 2)
+    ak = (oldPosition - obstaclesLoc) / np.linalg.norm(oldPosition - obstaclesLoc)
+    P = np.eye(2) - np.outer(ak, ak)
+    pik = mu * P @ [1,1]
+    ui = Math.getUi(i ,pik, qik, bik, nik, oldPosition, nodes, gammaAgent)
+     
+    def test_MathDistance(self):
+        node1 = Nodes(1,1)
+        node2 = Nodes(1,5)
+        
+        dis = Math.distanceBetweenNodes(node1,node2)
+        #print(dis)
+        self.assertEqual(dis, 4)
+        
+    def test_bik(self):
+
+        print(self.bik)
+        self.assertAlmostEqual(self.bik, 0, places=2)
+    
+    def test_getUI(self):
+        print(self.ui)
+        self.assertAlmostEqual(self.ui, 0, places=6)
+
+
+    
+        
+     
+if __name__ == "__main__":
+    unittest.main
+    print("All tests passed") 
