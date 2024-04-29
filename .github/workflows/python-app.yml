@@ -25,7 +25,7 @@ jobs:
           
       - name: Run unit tests
         run: |
-              python3 -m unittest coverage run -m unittest
+              python3 -m unittest coverage run -m unittest Tester.py
               python3 -m coverage report
 
       - name: Upload test results
