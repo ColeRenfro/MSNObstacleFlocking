@@ -11,7 +11,7 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v2
 
       - name: Set up Python
         uses: actions/setup-python@v3
@@ -20,9 +20,7 @@ jobs:
 
           
       - name: Run unit tests
-        run: |
-          pip install pytest pytest-cov
-          pytest Tester.py
+        run: python3 -m unittest Tester.py
 
       - name: Upload test results
         uses: actions/upload-artifact@v2
