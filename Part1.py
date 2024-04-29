@@ -108,6 +108,8 @@ def simulate():
                     #nodes[i, :] = newPosition
                     velmag[i, t] = np.linalg.norm(newVelocity)
 
+        
+        
         if (t+1) % interval == 0:
             Plot.plotNeighbors(t,gammaAgent,numObstacles,obstaclesLoc,obstacleRadius,nodes,N,R)
 

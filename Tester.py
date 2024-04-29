@@ -59,17 +59,13 @@ class Tester(unittest.TestCase):
         self.assertAlmostEqual(np.round(Math.sigmaNorm(z),decimals=4),0.488,places = 3)
         
        
-     
-        
-        
     
     def test_getUI(self):
         print(self.ui[0,:])
         #self.assertAlmostEqual(self.ui.any(), -177.71, places=2)
         self.assertEqual(np.allclose(self.ui,[-177.71,-177.71]), True)
 
-    
-        
+
      
 if __name__ == "__main__":
     unittest.main
