@@ -1,2 +1,5 @@
 numpy==1.21.0
 matplotlib==3.4.3
+
+pip install numpy
+pip install matplotlib
