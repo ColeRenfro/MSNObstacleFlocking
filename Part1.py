@@ -99,7 +99,7 @@ def simulate():
 
                     ui = Math.getUi(i,pik, qik, bik, nik, oldPosition, nodes, gammaAgent)
                     newPosition = oldPosition + DELTAT * oldVelocity + (DELTAT ** 2 / 2) * ui
-                    newVelocity = (newPosition - oldPosition) / DELTAT
+                    newVelocity = oldVelocity + ui * DELTAT #(newPosition - oldPosition) / DELTAT
 
                     # Update node properties
                     nodes[i].posx = newPosition[0]

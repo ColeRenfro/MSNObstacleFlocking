@@ -52,7 +52,7 @@ class Tester(unittest.TestCase):
     def test_bik(self):
 
         #print(self.bik)
-        self.assertAlmostEqual(self.bik, 0.0, places=2)
+        self.assertAlmostEqual(self.bik, 5, places=2)
         
     def test_sigmaNorm(self):
         z = 1

@@ -3,6 +3,7 @@ from Nodes import Nodes
 
 class Math:
     
+    
     EPSILON = 0.1
     H = 0.2
     C1ALPHA = 20
