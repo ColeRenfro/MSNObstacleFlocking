@@ -6,8 +6,5 @@ class Nodes:
         self.posy = posy
         self.vel = np.array([0,0])
     
-    def move(self):
-        self.posx += self.vel[0]
-        self.posy += self.vel[1]
-        return self.posx, self.posy
+   
         
